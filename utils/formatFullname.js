@@ -1,5 +1,13 @@
 module.exports = (fullName) => {
-  if (fullName === "" || typeof fullName !== "string" || fullName.length !== 2)
+  const countWords = (string) => {
+    const arr = string.split(" ");
+    return arr.filter((word) => word !== "").length;
+  };
+  if (
+    fullName === "" ||
+    typeof fullName !== "string" ||
+    countWords(fullName) !== 2
+  )
     return "Error";
   const [firstName, lastName] = fullName.split(" ");
   if (!firstName || !lastName) return false;
