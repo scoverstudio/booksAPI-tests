@@ -10,8 +10,6 @@ module.exports = (fullName) => {
     return "Error";
 
   const [firstName, lastName] = fullName.split(" ");
-  console.log(firstName, lastName);
-
   if (!firstName || !lastName) return false;
   return (
     firstName[0].toUpperCase() +
