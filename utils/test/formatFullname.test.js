@@ -15,7 +15,19 @@ describe("FormatFullname", () => {
   });
 
   it('should return an error if "fullname" arg not include only <firstname> and <lastname>', () => {
-    expect(formatFullname('John Doe test')).to.equal("Error");
-    expect(formatFullname('John')).to.equal("Error");
+    expect(formatFullname("John Doe test")).to.equal("Error");
+    expect(formatFullname("John")).to.equal("Error");
+  });
+
+  it("should return formated 'fullname' if arg is correct", () => {
+    expect(formatFullname("John Doe")).to.equal("John Doe");
+    expect(formatFullname("JoHn DOe")).to.equal("John Doe");
+    expect(formatFullname("JOHN DOE")).to.equal("John Doe");
+    expect(formatFullname("john doe")).to.equal("John Doe");
+  });
+
+  it("should return an false if arg includes unnecessary spaces", () => {
+    expect(formatFullname(" ab cd")).to.be.false;
+    expect(formatFullname("ab  cd")).to.be.false;
   });
 });
